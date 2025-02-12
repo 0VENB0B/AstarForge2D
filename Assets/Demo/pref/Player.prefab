@@ -162,5 +162,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 926083650889508616}
   endPoint: {x: 0, y: 0, z: 0}
-  pathColor: {r: 0, g: 1, b: 0, a: 1}
+  pathColor: {r: 0.9304825, g: 1, b: 0, a: 1}
   moveSpeed: 20

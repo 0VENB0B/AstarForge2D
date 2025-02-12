@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DungeonGenerator : MonoBehaviour
+public class ProceduralGenerator : MonoBehaviour
 {
     public int gridWidth = 50;
     public int gridHeight = 50;
@@ -32,10 +32,10 @@ public class DungeonGenerator : MonoBehaviour
 
     void Start()
     {
-        //GenerateDungeon();
+        //GenerateRoomAndCorridor();
     }
 
-    public void GenerateDungeon()
+    public void GenerateRoomAndCorridor()
     {
         GameObject parent = new GameObject("Parent");
 
@@ -59,7 +59,7 @@ public class DungeonGenerator : MonoBehaviour
         }
         PlaceKeyItemInRandomRoom(parent);
 
-        InstantiateDungeon(parent);
+        InstantiateLayout(parent);
     }
     public void ResetGrid()
     {
@@ -330,8 +330,8 @@ public class DungeonGenerator : MonoBehaviour
 
         Rect selectedRoom = rooms[Random.Range(0, rooms.Count)];
 
-        int roomX = (int)Random.Range(selectedRoom.xMin + 1, selectedRoom.xMax - 1); // Exclude walls
-        int roomY = (int)Random.Range(selectedRoom.yMin + 1, selectedRoom.yMax - 1); // Exclude walls
+        int roomX = (int)Random.Range(selectedRoom.xMin + 1, selectedRoom.xMax - 1); 
+        int roomY = (int)Random.Range(selectedRoom.yMin + 1, selectedRoom.yMax - 1); 
 
         Vector3 keyItemPosition = new Vector3(roomX, roomY, 0);
         Instantiate(keyItemPrefab, keyItemPosition, Quaternion.identity, parent.transform);
@@ -354,7 +354,7 @@ public class DungeonGenerator : MonoBehaviour
 
     }
 
-    void InstantiateDungeon(GameObject parent)
+    void InstantiateLayout(GameObject parent)
     {
 
         for (int x = 0; x < gridWidth; x++)

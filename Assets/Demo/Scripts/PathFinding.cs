@@ -34,19 +34,20 @@ public class PathFinding : MonoBehaviour
             MoveToTarget();
         }
     }
-    void MoveToTarget(){
+    void MoveToTarget()
+    {
 
-                if (gridManager != null && startPoint != null)
-                {
-                    path = PathfindingLibrary.FindPath(gridManager, startPoint.position, endPoint);
+        if (gridManager != null && startPoint != null)
+        {
+            path = PathfindingLibrary.FindPath(gridManager, startPoint.position, endPoint);
 
-                    if (path != null && path.Count > 0 && !isWalking)
-                    {
-                        StartCoroutine(PathfindingLibrary.MoveAlongPath(objectToMove, path, moveSpeed, OnPathCompleted));
-                        isWalking = true;
-                    }
-                }
-            
+            if (path != null && path.Count > 0 && !isWalking)
+            {
+                StartCoroutine(PathfindingLibrary.MoveAlongPath(objectToMove, path, moveSpeed, OnPathCompleted));
+                isWalking = true;
+            }
+        }
+
 
     }
     void OnPathCompleted()

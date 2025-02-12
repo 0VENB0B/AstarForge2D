@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class ProceduralManager : MonoBehaviour
 {
-    public DungeonGenerator dungeonGenerator;
     public GridManager gridManager;
+    public ProceduralGenerator proceduralGenerator;
     public GameObject Player;
     void Start()
     {
-        if (dungeonGenerator != null)
+        if (proceduralGenerator != null)
         {
-            dungeonGenerator.GenerateDungeon();
-            dungeonGenerator.SpawnPlayer(Player, GameObject.Find("Parent"));
+            proceduralGenerator.GenerateRoomAndCorridor();
+            proceduralGenerator.SpawnPlayer(Player, GameObject.Find("Parent"));
             gridManager.enabled = true;
         }
         else
